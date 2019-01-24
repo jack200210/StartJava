@@ -1,25 +1,33 @@
-public class Calculator {
-    public static void main(String[] args) {
-    	int x = 17;
-    	int y = 7;
-    	char mathOperation = '^';
 
-    	if (mathOperation == '+') {
-	    System.out.println(x + y);
-	} else if (mathOperation == '-') {
-	    System.out.println(x - y);
-	} else if (mathOperation == '*') {
-	    System.out.println(x * y);
-	} else if (mathOperation == '/') {
-	    System.out.println(x / y);
-	} else if (mathOperation == '^') {
-	    int result = 1;
-	    for (int i = 1; i <= y; i++) {
-		 result *= x;
-	    }
-	    System.out.println(result);
- } else if (mathOperation == '%') {
-	System.out.println(x % y);			
+public class Calculator {
+
+    public int calculate(int number1, int number2, char operation) {
+        int result = 0; 
+        switch (operation) {
+            case '+':
+                result = number1 + number2;
+                break;
+            case '-':
+                result = number1 - number2;
+                break;
+            case '*':
+                result = number1 * number2;
+                break;
+            case '/':
+                result = number1 / number2;
+                break;
+            case '%':
+                result = number1 % number2;
+                break;
+            case '^':
+                result = number1;
+                for (int count = 1; count <= number2 - 1; count++) {
+                    result *= number1;
+                }
+                break;
+            default:
+                System.out.println("Error!!");
         }
-      }
+        return result;
+    }
 }
